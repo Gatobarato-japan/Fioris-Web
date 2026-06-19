@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fioris — Panadería y Pastelería desde 1991 | San Juan de Lurigancho</title>
+<meta name="description" content="Fioris, panadería y pastelería familiar desde 1991 en Av. Gran Chimú 515, Zárate, San Juan de Lurigancho. Tortas, bocaditos, postres y café recién hecho.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF1E3;
+    --cream-deep:#F4E6D2;
+    --choco:#4A2A18;
+    --choco-soft:#6B3F26;
+    --terracotta:#D97B3F;
+    --cherry:#B23A35;
+    --white:#FFFDFB;
+    --line: rgba(74,42,24,0.16);
+    --shadow: 0 18px 40px -20px rgba(74,42,24,0.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Karla', sans-serif;
+    background:var(--cream);
+    color:var(--choco);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:600; line-height:1.08; letter-spacing:-0.01em;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Karla', sans-serif;
+    font-weight:700;
+    font-size:0.74rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--terracotta);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cherry);flex-shrink:0;}
+
+  /* ===== Reduced motion ===== */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ===== Top bar (closure notice) ===== */
+  .notice{
+    background:var(--choco);
+    color:var(--cream);
+    text-align:center;
+    font-size:0.84rem;
+    padding:9px 16px;
+    letter-spacing:0.01em;
+  }
+  .notice strong{color:#F4C77B;}
+
+  /* ===== Header ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,241,227,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 28px;
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand-mark{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:1.7rem; color:var(--choco);
+  }
+  .brand-sub{font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--choco-soft); border-left:1px solid var(--line); padding-left:10px; line-height:1.3;}
+  .nav-links{display:flex; gap:30px; font-size:0.92rem; font-weight:600;}
+  .nav-links a{position:relative; padding:4px 0; opacity:0.85; transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--terracotta);transition:width .25s;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--cherry); color:var(--white);
+    padding:10px 20px; border-radius:30px; font-weight:700; font-size:0.88rem;
+    box-shadow:0 8px 18px -8px rgba(178,58,53,0.55);
+    transition:transform .2s, box-shadow .2s;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{transform:translateY(-1px); box-shadow:0 10px 22px -8px rgba(178,58,53,0.7);}
+  .nav-toggle{display:none;}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex; align-items:center;
+    overflow:hidden;
+    background:var(--choco);
+  }
+  .hero-img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center 30%;
+    opacity:0.62;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(40,20,10,0.55) 0%, rgba(40,20,10,0.35) 35%, rgba(40,20,10,0.85) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    max-width:1180px; margin:0 auto; padding:0 28px;
+    width:100%;
+  }
+  .hero-eyebrow{
+    color:#F4C77B; font-weight:700; font-size:0.8rem; letter-spacing:0.2em; text-transform:uppercase;
+    margin-bottom:22px; display:flex; align-items:center; gap:10px;
+  }
+  .hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#F4C77B;}
+  .hero h1{
+    color:var(--white);
+    font-size:clamp(2.6rem, 6.2vw, 5rem);
+    max-width:11ch;
+    margin-bottom:20px;
+  }
+  .hero h1 em{font-style:italic; color:#F4C77B; font-weight:500;}
+  .hero p{
+    color:rgba(255,253,251,0.88);
+    font-size:1.18rem; max-width:42ch; margin-bottom:36px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:16px 30px; border-radius:40px;
+    font-weight:700; font-size:1rem;
+    transition:transform .2s, box-shadow .2s, background .2s;
+    border:none; cursor:pointer;
+  }
+  .btn-primary{
+    background:var(--cherry); color:var(--white);
+    box-shadow:0 14px 30px -10px rgba(178,58,53,0.65);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 18px 34px -10px rgba(178,58,53,0.8);}
+  .btn-ghost{
+    background:rgba(255,253,251,0.12); color:var(--white);
+    border:1.5px solid rgba(255,253,251,0.55);
+  }
+  .btn-ghost:hover{background:rgba(255,253,251,0.22); transform:translateY(-2px);}
+  .hero-since{
+    position:absolute; right:28px; bottom:34px; z-index:2;
+    text-align:right; color:rgba(255,253,251,0.75);
+    font-size:0.8rem; letter-spacing:0.05em;
+  }
+  .hero-since b{display:block; font-family:'Fraunces',serif; font-size:1.5rem; color:#F4C77B; font-weight:600;}
+
+  /* ===== Service strip ===== */
+  .strip{
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+    padding:26px 0;
+  }
+  .strip-row{
+    display:flex; gap:38px; overflow-x:auto;
+    max-width:1180px; margin:0 auto; padding:0 28px;
+    scrollbar-width:none;
+  }
+  .strip-row::-webkit-scrollbar{display:none;}
+  .strip-item{
+    display:flex; align-items:center; gap:10px;
+    font-size:0.92rem; font-weight:600; color:var(--choco-soft);
+    white-space:nowrap; flex-shrink:0;
+  }
+  .strip-item svg{width:20px;height:20px; color:var(--terracotta); flex-shrink:0;}
+
+  /* ===== Section generic ===== */
+  section{padding:96px 0;}
+  .section-head{
+    max-width:640px; margin-bottom:56px;
+  }
+  .section-head h2{
+    font-size:clamp(2rem, 3.6vw, 2.8rem);
+    margin-top:14px;
+  }
+  .section-head p{margin-top:16px; font-size:1.08rem; color:var(--choco-soft); max-width:52ch;}
+  .center{text-align:center; margin-left:auto; margin-right:auto;}
+
+  /* ===== Highlights / Qué ofrecemos ===== */
+  .offers{background:var(--white);}
+  .offer-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  }
+  .offer-card{
+    background:var(--cream); border-radius:18px; padding:32px 26px;
+    border:1px solid var(--line);
+    transition:transform .25s, box-shadow .25s;
+  }
+  .offer-card:hover{transform:translateY(-5px); box-shadow:var(--shadow);}
+  .offer-icon{
+    width:50px; height:50px; border-radius:50%;
+    background:var(--choco); color:var(--cream);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px;
+  }
+  .offer-icon svg{width:24px; height:24px;}
+  .offer-card h3{font-size:1.18rem; margin-bottom:8px;}
+  .offer-card p{font-size:0.93rem; color:var(--choco-soft);}
+
+  /* ===== Tortas gallery ===== */
+  .gallery{background:var(--cream);}
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:26px;
+  }
+  .cake-card{
+    background:var(--white); border-radius:20px; overflow:hidden;
+    box-shadow:0 10px 26px -16px rgba(74,42,24,0.28);
+    transition:transform .25s, box-shadow .25s;
+    position:relative;
+  }
+  .cake-card:hover{transform:translateY(-6px); box-shadow:0 24px 40px -18px rgba(74,42,24,0.4);}
+  .cake-img-wrap{aspect-ratio:1/1; overflow:hidden; position:relative;}
+  .cake-img-wrap img{width:100%; height:100%; object-fit:cover; transition:transform .5s;}
+  .cake-card:hover .cake-img-wrap img{transform:scale(1.06);}
+  .cake-tag{
+    position:absolute; top:14px; left:14px;
+    background:rgba(251,241,227,0.94); color:var(--cherry);
+    font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    padding:6px 12px; border-radius:30px;
+  }
+  .cake-body{padding:20px 22px 24px;}
+  .cake-body h3{font-size:1.22rem; margin-bottom:6px;}
+  .cake-body p{font-size:0.88rem; color:var(--choco-soft); margin-bottom:14px; min-height:42px;}
+  .cake-price{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-top:1px dashed var(--line); padding-top:14px;
+  }
+  .cake-price .from{font-size:0.74rem; color:var(--choco-soft); text-transform:uppercase; letter-spacing:0.04em;}
+  .cake-price .amt{font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--cherry);}
+
+  .gallery-more{
+    text-align:center; margin-top:48px;
+  }
+
+  /* ===== Bocaditos / eventos ===== */
+  .events{background:var(--choco); color:var(--cream); position:relative; overflow:hidden;}
+  .events .wrap{position:relative; z-index:2;}
+  .events .eyebrow{color:#F4C77B;}
+  .events .eyebrow::before{background:#F4C77B;}
+  .events .section-head h2{color:var(--white);}
+  .events .section-head p{color:rgba(251,241,227,0.78);}
+  .event-grid{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:18px;
+  }
+  .event-photo{
+    border-radius:16px; overflow:hidden; aspect-ratio:3/4;
+    grid-column:span 2;
+  }
+  .event-photo:nth-child(1), .event-photo:nth-child(4){grid-column:span 3;}
+  .event-photo img{width:100%; height:100%; object-fit:cover; filter:saturate(1.05);}
+  .events-panel{
+    margin-top:50px;
+    background:rgba(251,241,227,0.07);
+    border:1px solid rgba(251,241,227,0.18);
+    border-radius:20px;
+    padding:36px;
+    display:flex; align-items:center; justify-content:space-between; gap:30px;
+    flex-wrap:wrap;
+  }
+  .events-panel-text h3{color:var(--white); font-size:1.5rem; margin-bottom:8px;}
+  .events-panel-text p{color:rgba(251,241,227,0.78); max-width:48ch;}
+  .price-pills{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
+  .price-pill{
+    background:rgba(251,241,227,0.1); border:1px solid rgba(251,241,227,0.3);
+    color:var(--cream); font-size:0.82rem; padding:6px 14px; border-radius:20px;
+  }
+
+  /* ===== Menu / Carta ===== */
+  .menu{background:var(--white);}
+  .menu-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  .menu-card{
+    border:1.5px solid var(--line); border-radius:18px; padding:30px 28px;
+    transition:border-color .2s, transform .2s;
+  }
+  .menu-card:hover{border-color:var(--terracotta); transform:translateY(-4px);}
+  .menu-card .num{font-family:'Fraunces',serif; font-style:italic; font-size:1rem; color:var(--terracotta); margin-bottom:14px; display:block;}
+  .menu-card h3{font-size:1.3rem; margin-bottom:10px;}
+  .menu-card p{font-size:0.92rem; color:var(--choco-soft); margin-bottom:18px;}
+  .menu-card ul{list-style:none; font-size:0.88rem; color:var(--choco-soft);}
+  .menu-card li{padding:4px 0; display:flex; justify-content:space-between; gap:10px;}
+  .menu-card li::before{content:none;}
+  .menu-pdf-row{
+    margin-top:44px; display:flex; gap:18px; flex-wrap:wrap; justify-content:center;
+  }
+  .pdf-btn{
+    display:flex; align-items:center; gap:10px;
+    background:var(--cream); border:1.5px solid var(--line);
+    padding:14px 22px; border-radius:14px; font-weight:700; font-size:0.92rem;
+    transition:border-color .2s, transform .2s;
+  }
+  .pdf-btn:hover{border-color:var(--terracotta); transform:translateY(-2px);}
+  .pdf-btn svg{width:20px; height:20px; color:var(--cherry); flex-shrink:0;}
+
+  /* ===== Story / Sobre nosotros ===== */
+  .story{background:var(--cream-deep);}
+  .story-grid{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;
+  }
+  .story-img{
+    border-radius:24px; overflow:hidden; aspect-ratio:4/5;
+    box-shadow:var(--shadow);
+  }
+  .story-img img{width:100%; height:100%; object-fit:cover;}
+  .story-text .eyebrow{margin-bottom:18px;}
+  .story-text h2{font-size:clamp(1.9rem,3.4vw,2.6rem); margin-bottom:22px;}
+  .story-text p{color:var(--choco-soft); font-size:1.05rem; margin-bottom:18px;}
+  .story-stats{display:flex; gap:36px; margin-top:32px;}
+  .stat b{font-family:'Fraunces',serif; font-size:2.1rem; color:var(--cherry); display:block;}
+  .stat span{font-size:0.82rem; color:var(--choco-soft); text-transform:uppercase; letter-spacing:0.04em;}
+
+  /* ===== Visit / Ubicación ===== */
+  .visit{background:var(--white);}
+  .visit-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;
+  }
+  .visit-card{
+    background:var(--cream); border-radius:22px; padding:38px;
+    border:1px solid var(--line);
+  }
+  .visit-row{display:flex; gap:16px; padding:18px 0; border-bottom:1px dashed var(--line);}
+  .visit-row:last-child{border-bottom:none;}
+  .visit-row .ic{
+    width:42px; height:42px; border-radius:50%; background:var(--choco); color:var(--cream);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .visit-row .ic svg{width:20px; height:20px;}
+  .visit-row h4{font-size:1rem; margin-bottom:4px;}
+  .visit-row p{font-size:0.92rem; color:var(--choco-soft);}
+  .visit-row a{color:var(--cherry); font-weight:700;}
+  .map-frame{
+    border-radius:22px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:var(--shadow); height:100%; min-height:420px;
+  }
+  .map-frame iframe{width:100%; height:100%; border:0; display:block;}
+  .payments{margin-top:28px;}
+  .payments h4{font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--choco-soft); margin-bottom:14px;}
+  .pay-row{display:flex; gap:12px; flex-wrap:wrap;}
+  .pay-chip{
+    display:flex; align-items:center; gap:8px;
+    background:var(--white); border:1px solid var(--line);
+    padding:9px 16px; border-radius:30px; font-size:0.84rem; font-weight:600;
+  }
+  .pay-chip svg{width:16px; height:16px; color:var(--terracotta);}
+
+  /* ===== CTA banda final ===== */
+  .cta-band{
+    background:var(--cherry); color:var(--white); text-align:center;
+    padding:80px 0;
+  }
+  .cta-band h2{color:var(--white); font-size:clamp(2rem,4vw,2.8rem); margin-bottom:16px;}
+  .cta-band p{color:rgba(255,253,251,0.9); font-size:1.1rem; margin-bottom:36px; max-width:46ch; margin-left:auto; margin-right:auto;}
+  .cta-band .btn-ghost{border-color:rgba(255,255,255,0.6);}
+  .cta-band .btn-primary{background:var(--choco);}
+
+  /* ===== Footer ===== */
+  footer{background:var(--choco); color:rgba(251,241,227,0.8); padding:60px 0 30px;}
+  .foot-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px;
+    padding-bottom:40px; border-bottom:1px solid rgba(251,241,227,0.14);
+  }
+  .foot-brand .brand-mark{color:var(--white);}
+  .foot-brand p{margin-top:14px; font-size:0.92rem; max-width:34ch; color:rgba(251,241,227,0.65);}
+  .foot-social{display:flex; gap:12px; margin-top:20px;}
+  .foot-social a{
+    width:38px; height:38px; border-radius:50%; background:rgba(251,241,227,0.1);
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s;
+  }
+  .foot-social a:hover{background:var(--terracotta);}
+  .foot-social svg{width:18px; height:18px; color:var(--cream);}
+  .foot-col h4{color:var(--white); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:18px;}
+  .foot-col a, .foot-col p{display:block; font-size:0.92rem; margin-bottom:11px; color:rgba(251,241,227,0.72);}
+  .foot-col a:hover{color:var(--terracotta);}
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding-top:24px;
+    font-size:0.82rem; color:rgba(251,241,227,0.5); flex-wrap:wrap; gap:10px;
+  }
+
+  /* ===== WhatsApp floating button ===== */
+  .wa-float{
+    position:fixed; bottom:24px; right:24px; z-index:60;
+    width:60px; height:60px; border-radius:50%;
+    background:#25D366; color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 26px -8px rgba(0,0,0,0.45);
+    transition:transform .2s;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:30px; height:30px;}
+
+  /* ===== Mobile ===== */
+  @media (max-width: 980px){
+    .offer-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .menu-grid{grid-template-columns:1fr;}
+    .story-grid{grid-template-columns:1fr; gap:36px;}
+    .story-img{aspect-ratio:16/10;}
+    .visit-grid{grid-template-columns:1fr;}
+    .event-grid{grid-template-columns:repeat(3,1fr);}
+    .event-photo, .event-photo:nth-child(1), .event-photo:nth-child(4){grid-column:span 1;}
+    .foot-grid{grid-template-columns:1fr; gap:34px;}
+  }
+  @media (max-width: 700px){
+    .nav-links{display:none;}
+    .brand-sub{display:none;}
+    section{padding:64px 0;}
+    .offer-grid{grid-template-columns:1fr 1fr;}
+    .gallery-grid{grid-template-columns:1fr 1fr;}
+    .event-grid{grid-template-columns:1fr 1fr;}
+    .hero{min-height:88vh;}
+    .hero-since{display:none;}
+    .events-panel{flex-direction:column; align-items:flex-start;}
+  }
+  @media (max-width: 480px){
+    .gallery-grid{grid-template-columns:1fr 1fr; gap:14px;}
+    .event-grid{grid-template-columns:1fr 1fr; gap:10px;}
+    .offer-grid{grid-template-columns:1fr 1fr; gap:14px;}
+    .cake-body{padding:14px 16px 18px;}
+    .hero-ctas{flex-direction:column; align-items:stretch;}
+    .wrap{padding:0 18px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">📍 Nuestra antigua web ya no está disponible — esta es nuestra <strong>nueva página oficial</strong>. Encuéntranos también en Instagram <strong>@fiorispasteleria</strong>.</div>
+
+<header>
+  <nav class="nav">
+    <div class="brand">
+      <span class="brand-mark">Fioris</span>
+      <span class="brand-sub">Panadería<br>Pastelería</span>
+    </div>
+    <div class="nav-links">
+      <a href="#tortas">Tortas</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#carta">Carta</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#visita">Ubicación</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/51922233883" target="_blank" rel="noopener">Reservar / Consultar</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img class="hero-img" src="assets/torta_chocolate.jpg" alt="Torta Selva Negra de Fioris decorada con cerezas y virutas de chocolate">
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="dot"></span> San Juan de Lurigancho · Zárate</div>
+    <h1>Sabor que une<br>a la <em>familia</em></h1>
+    <p>Panadería y pastelería artesanal en el corazón de SJL. Tortas, postres, bocaditos y café recién hecho, con la misma receta de siempre.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#visita">📍 Cómo llegar</a>
+      <a class="btn btn-ghost" href="https://wa.me/51922233883" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-since"><b>1991</b>Horneando desde</div>
+</section>
+
+<div class="strip">
+  <div class="strip-row">
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18l-1.5 12.5a2 2 0 0 1-2 1.5H6.5a2 2 0 0 1-2-1.5L3 7Z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg> Consumo en el local</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><circle cx="9" cy="12" r="0"/></svg> Para llevar</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg> Retiro en tienda</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg> Compras en tienda</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h12M3 6h18M3 18h18"/><path d="M19 9l3 3-3 3"/></svg> Entrega a domicilio</div>
+  </div>
+</div>
+
+<section class="offers" id="ofrecemos">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center;">Qué ofrecemos</div>
+      <h2>Todo lo que endulza tu día</h2>
+      <p class="center">Desde el desayuno de la mañana hasta la torta de cumpleaños, en un solo lugar.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h14a4 4 0 0 1 0 8H3z"/><path d="M3 8v8"/><path d="M17 8V5a2 2 0 0 0-2-2"/></svg></div>
+        <h3>Café de grano</h3>
+        <p>Espresso, capuccino, frappuccinos y bebidas frías para acompañar cualquier antojo.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18h16M5 18l1-9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2l1 9"/><path d="M9 11h6"/></svg></div>
+        <h3>Desayunos</h3>
+        <p>Sandwiches en pan ciabatta, croissants rellenos y bollería recién horneada cada mañana.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Postres y dulces</h3>
+        <p>Tiramisú, volcán de chocolate, mil hojas y clásicos de nuestra vitrina de siempre.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9Z"/></svg></div>
+        <h3>Visita rápida</h3>
+        <p>Pasa, elige y disfruta sin esperas largas. Ideal para una pausa entre el día a día.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="tortas">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Catálogo de tortas</div>
+      <h2>Deliciosos postres,<br>hechos para celebrar</h2>
+      <p>Nuestras tortas se preparan al momento, en tamaño personal, mediano o grande. Estos son algunos de nuestros sabores favoritos.</p>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="cake-card">
+        <div class="cake-img-wrap"><span class="cake-tag">🍒 Clásica</span><img src="assets/torta_selva_negra.jpg" alt="Torta Selva Negra"></div>
+        <div class="cake-body">
+          <h3>Selva Negra</h3>
+          <p>Chocolate semihúmedo relleno de fudge, chantillí y mermelada de fresa.</p>
+          <div class="cake-price"><span class="from">Desde</span><span class="amt">S/35</span></div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap"><span class="cake-tag">⭐ Favorita</span><img src="assets/torta_tres_leches_vainilla.jpg" alt="Torta Tres Leches de Vainilla"></div>
+        <div class="cake-body">
+          <h3>Tres Leches de Vainilla</h3>
+          <p>Queque húmedo en 3 leches, relleno y cubierto con chantillí a la canela.</p>
+          <div class="cake-price"><span class="from">Desde</span><span class="amt">S/40</span></div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap"><img src="assets/torta_chocolate.jpg" alt="Torta de Chocolate"></div>
+        <div class="cake-body">
+          <h3>De Chocolate</h3>
+          <p>Queque de chocolate semi húmedo, relleno y bañado en fudge.</p>
+          <div class="cake-price"><span class="from">Desde</span><span class="amt">S/35</span></div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap"><img src="assets/torta_fresa.jpg" alt="Torta de Fresa"></div>
+        <div class="cake-body">
+          <h3>De Fresa</h3>
+          <p>Vainilla con manjar blanco, chantillí y láminas de fresa fresca.</p>
+          <div class="cake-price"><span class="from">Desde</span><span class="amt">S/40</span></div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap"><img src="assets/torta_red_velvet.jpg" alt="Torta Red Velvet"></div>
+        <div class="cake-body">
+          <h3>Red Velvet</h3>
+          <p>Harina de fresa, mermelada de sauco y chantillí, baño de almíbar.</p>
+          <div class="cake-price"><span class="from">Desde</span><span class="amt">S/35</span></div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap"><img src="assets/torta_mocha.jpg" alt="Torta Mocha"></div>
+        <div class="cake-body">
+          <h3>Mocha</h3>
+          <p>Chocolate y café, coronada con castañas acarameladas.</p>
+          <div class="cake-price"><span class="from">Desde</span><span class="amt">S/35</span></div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap"><img src="assets/torta_sublime.jpg" alt="Torta Sublime de chocolate y frutos secos"></div>
+        <div class="cake-body">
+          <h3>Sublime</h3>
+          <p>Chocolate relleno de chantillí, chocolate premium y frutos secos.</p>
+          <div class="cake-price"><span class="from">Desde</span><span class="amt">S/35</span></div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap"><img src="assets/torta_helada.jpg" alt="Torta Helada con gelatina de fresa"></div>
+        <div class="cake-body">
+          <h3>Torta Helada</h3>
+          <p>Dos capas con base de bizcochuelo, bañada en carlota y gelatina.</p>
+          <div class="cake-price"><span class="from">Desde</span><span class="amt">S/30</span></div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap"><span class="cake-tag">☕ Para los de café</span><img src="assets/torta_tres_leches_cafe.jpg" alt="Torta Tres Leches de Café"></div>
+        <div class="cake-body">
+          <h3>Tres Leches de Café</h3>
+          <p>Chocolate bañado en 3 leches de café, con crema mocha.</p>
+          <div class="cake-price"><span class="from">Desde</span><span class="amt">S/40</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="gallery-more">
+      <a class="pdf-btn" href="docs/TORTAS CÁTALOGO FIORIS_2025.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        Ver catálogo completo de tortas (PDF)
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="events" id="eventos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Para tus eventos</div>
+      <h2>Bocaditos dulces y salados<br>por cantidad</h2>
+      <p>Perfectos para cumpleaños, reuniones familiares o eventos de empresa. Pide por 25, 50 o 100 unidades.</p>
+    </div>
+    <div class="event-grid">
+      <div class="event-photo"><img src="assets/bocadito_alfajor_corazon.jpg" alt="Alfajorcitos en forma de corazón"></div>
+      <div class="event-photo"><img src="assets/bocadito_croissant_jamon.jpg" alt="Mini croissants de jamón y queso"></div>
+      <div class="event-photo"><img src="assets/bocadito_petit_pollo.jpg" alt="Petit pan de pollo"></div>
+      <div class="event-photo"><img src="assets/bocadito_sandwich_pollo.jpg" alt="Sandwiches de pollo deshilachado"></div>
+      <div class="event-photo"><img src="assets/bocadito_panecillos.jpg" alt="Panecillos horneados"></div>
+      <div class="event-photo"><img src="assets/bocadito_enrollado_jamon.jpg" alt="Enrollados de jamón"></div>
+    </div>
+
+    <div class="events-panel">
+      <div class="events-panel-text">
+        <h3>¿Organizando un evento?</h3>
+        <p>Orejitas, alfajorcitos, empanaditas, mini sandwiches y más — armamos tu pedido a tu medida.</p>
+        <div class="price-pills">
+          <span class="price-pill">x25 desde S/15</span>
+          <span class="price-pill">x50 desde S/30</span>
+          <span class="price-pill">x100 desde S/60</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/51922233883?text=Hola%2C%20quiero%20cotizar%20bocaditos%20para%20un%20evento" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="carta">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center;">Nuestra carta</div>
+      <h2>Hay más que tortas en Fioris</h2>
+      <p class="center">Sandwiches en pan ciabatta, pizzas artesanales, pastas, postres individuales y una barra de café completa.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <span class="num">Sandwiches</span>
+        <h3>Pan recién horneado</h3>
+        <p>Ciabatta, masa madre, brioche y pan francés con rellenos generosos.</p>
+        <ul>
+          <li><span>Club Sandwich</span><span>S/15</span></li>
+          <li><span>Lomo Ahumado</span><span>S/16</span></li>
+          <li><span>Chicharrón</span><span>S/15</span></li>
+        </ul>
+      </div>
+      <div class="menu-card">
+        <span class="num">Pizzas & Pastas</span>
+        <h3>Artesanales</h3>
+        <p>Masa propia y salsas caseras, ideales para compartir.</p>
+        <ul>
+          <li><span>Pizza Suprema</span><span>S/30</span></li>
+          <li><span>Lasagna Bolognesa</span><span>S/24</span></li>
+          <li><span>Al Pesto</span><span>S/26</span></li>
+        </ul>
+      </div>
+      <div class="menu-card">
+        <span class="num">Café & Bebidas</span>
+        <h3>Barra completa</h3>
+        <p>Calientes, frías y frozen, para cualquier momento del día.</p>
+        <ul>
+          <li><span>Cappuccino</span><span>S/6</span></li>
+          <li><span>Frappuccino Mocha</span><span>S/16</span></li>
+          <li><span>Matcha Latte</span><span>S/8</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="menu-pdf-row">
+      <a class="pdf-btn" href="docs/CARTA MENU FIORIS.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        Carta completa (PDF)
+      </a>
+      <a class="pdf-btn" href="docs/CATÁLOGO BOCADITOS FIORIS.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        Catálogo de bocaditos (PDF)
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="nosotros">
+  <div class="wrap story-grid">
+    <div class="story-img">
+      <img src="assets/torta_durazno.jpg" alt="Torta de durazno decorada artesanalmente">
+    </div>
+    <div class="story-text">
+      <div class="eyebrow">Nuestra historia</div>
+      <h2>Un clásico de ayer, hoy y siempre</h2>
+      <p>Fioris nació en 1991 en Zárate, San Juan de Lurigancho, con una idea simple: hacer pan y pasteles como en casa. Más de tres décadas después, seguimos en el mismo barrio, horneando todos los días con las mismas recetas que nos hicieron parte de la familia de nuestros vecinos.</p>
+      <p>Hoy somos panadería, pastelería y cafetería — el lugar al que vuelves por una torta de cumpleaños, un café antes del trabajo, o simplemente un buen pan recién salido del horno.</p>
+      <div class="story-stats">
+        <div class="stat"><b>1991</b><span>Año de fundación</span></div>
+        <div class="stat"><b>30+</b><span>Años en SJL</span></div>
+        <div class="stat"><b>9+</b><span>Sabores de torta</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visita">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center;">Visítanos</div>
+      <h2>Te esperamos en Zárate</h2>
+      <p class="center">Ven a conocer la vitrina, elegir tu torta o simplemente sentarte con un café.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <div class="visit-row">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9Z"/><circle cx="12" cy="11" r="2.4"/></svg></div>
+          <div>
+            <h4>Dirección</h4>
+            <p>Av. Gran Chimú 515, Zárate<br>San Juan de Lurigancho 15401, Lima</p>
+          </div>
+        </div>
+        <div class="visit-row">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"/></svg></div>
+          <div>
+            <h4>Teléfono / WhatsApp</h4>
+            <p><a href="https://wa.me/51922233883" target="_blank" rel="noopener">922 233 883</a></p>
+          </div>
+        </div>
+        <div class="visit-row">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div>
+            <h4>Horario de atención</h4>
+            <p>Escríbenos para confirmar el horario del día — te respondemos al toque por WhatsApp.</p>
+          </div>
+        </div>
+        <div class="visit-row">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v16"/></svg></div>
+          <div>
+            <h4>Instagram</h4>
+            <p><a href="https://instagram.com/fiorispasteleria" target="_blank" rel="noopener">@fiorispasteleria</a></p>
+          </div>
+        </div>
+
+        <div class="payments">
+          <h4>Medios de pago</h4>
+          <div class="pay-row">
+            <span class="pay-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h20M2 6h20a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z"/></svg> Tarjeta de crédito</span>
+            <span class="pay-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h20M2 6h20a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z"/></svg> Tarjeta de débito</span>
+            <span class="pay-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12a6 6 0 1 1 12 0"/><path d="M3 12h2M19 12h2M12 3v2M12 19v2"/></svg> Pago móvil NFC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=Av.+Gran+Ch%C3%ADmu+515,+San+Juan+de+Lurigancho&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación de Fioris"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>¿Listo para tu próxima visita?</h2>
+    <p>Escríbenos para reservar una mesa, encargar tu torta o simplemente preguntar qué hay fresco hoy.</p>
+    <div class="hero-ctas" style="justify-content:center; display:flex;">
+      <a class="btn btn-primary" href="https://wa.me/51922233883" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <a class="btn btn-ghost" href="#visita">Ver ubicación</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-mark">Fioris</span>
+        <p>Panadería y pastelería familiar en San Juan de Lurigancho desde 1991. Sabor que une a la familia.</p>
+        <div class="foot-social">
+          <a href="https://instagram.com/fiorispasteleria" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="https://wa.me/51922233883" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Explorar</h4>
+        <a href="#tortas">Catálogo de tortas</a>
+        <a href="#eventos">Bocaditos para eventos</a>
+        <a href="#carta">Carta completa</a>
+        <a href="#nosotros">Nuestra historia</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contacto</h4>
+        <p>Av. Gran Chimú 515, Zárate<br>San Juan de Lurigancho 15401</p>
+        <a href="https://wa.me/51922233883" target="_blank" rel="noopener">922 233 883</a>
+        <a href="https://instagram.com/fiorispasteleria" target="_blank" rel="noopener">@fiorispasteleria</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Fioris — Panadería y Pastelería. Todos los derechos reservados.</span>
+      <span>Hecho con 🍒 en SJL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/51922233883" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.6 1.45 5.1L2 22l5.13-1.55a9.78 9.78 0 0 0 4.91 1.31h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.39 17.5 2 12.04 2Zm5.78 14a8.18 8.18 0 0 1-5.78 2.4 8.06 8.06 0 0 1-4.32-1.25l-.31-.18-3.04.92.91-2.96-.2-.32a8.08 8.08 0 0 1-1.27-4.4 8.18 8.18 0 0 1 8.21-8.18 8.13 8.13 0 0 1 8.13 8.18 8.1 8.1 0 0 1-2.33 5.79Zm-1.83-4.92c-.27-.13-1.58-.78-1.82-.87-.25-.09-.43-.13-.6.13-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-1.6-.8-2.66-1.43-3.71-3.25-.28-.48.28-.45.8-1.5.09-.18.04-.34-.04-.47-.09-.13-.69-1.66-.95-2.27-.25-.6-.5-.52-.69-.53-.18-.01-.39-.01-.6-.01-.2 0-.53.07-.81.36-.27.29-1.05 1.03-1.05 2.5 0 1.48 1.07 2.9 1.22 3.1.16.2 2.13 3.32 5.27 4.52 2.62 1 2.62.67 3.07.62.45-.04 1.45-.59 1.66-1.16.2-.57.2-1.06.14-1.16-.07-.11-.25-.18-.52-.31Z"/></svg>
+</a>
+
+</body>
+</html>
